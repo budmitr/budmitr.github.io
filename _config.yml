@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Dmitrii Budylskii homepage
-email: budmitr (at) gmail.com
+email: budmitr@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   This is personal blog of Dmitrii Budylskii  for sharing research and development results.
   Feel free to contact for collaboration
