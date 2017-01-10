@@ -40,7 +40,7 @@ Here is the code of CPU-environment, the explanation is below and the up-to-date
 {% highlight docker %}
 FROM ubuntu:xenial
 
-MAINTAINER Dmitrii Budylskii "budmitr@gmail.com"
+MAINTAINER Dmitrii Budylskii
 
 # Configure environment
 ENV CONDA_DIR /opt/miniconda
@@ -51,7 +51,7 @@ ENV HOME /home/$USER
 # Basic setups
 EXPOSE 8888
 RUN apt-get -y update && \
-    apt-get install -y wget python-pip python-dev libgtk2.0-0
+    apt-get install -y wget python-pip python-dev libgtk2.0-0 unzip
 
 # Create local user
 RUN useradd -m -s /bin/bash -N -u $USERGROUP $USER
@@ -69,9 +69,10 @@ WORKDIR $HOME
 
 # prepare default python 3.5 environment
 RUN pip install --upgrade pip && \
-    pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.12.0rc0-cp35-cp35m-linux_x86_64.whl && \
-    pip install h5py jupyter keras matplotlib moviepy pandas pillow && \
-    conda install -y -c menpo opencv3=3.1.0
+    pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.12.0-cp35-cp35m-linux_x86_64.whl && \
+    pip install h5py jupyter keras matplotlib moviepy pandas pillow sklearn flask-socketio eventlet && \
+    conda install -y -c menpo opencv3=3.1.0 && \
+    conda install -y seaborn
 {% endhighlight %}
 
 ## Explanation
@@ -80,12 +81,12 @@ Lets go line by line and understand wtf is going on here.
 
 {% highlight docker %}
 FROM ubuntu:xenial
-MAINTAINER Dmitrii Budylskii "budmitr@gmail.com"
+MAINTAINER Dmitrii Budylskii
 {% endhighlight %}
 
 CPU-environment is based on Ubuntu 16.04 LTS image which is xenial.
 First line says that first of all we have to take predefined Docker image with installed Ubuntu and work with it.
-Second line just tells who create this awesome Dockerfile.
+Second line just tells who created this awesome Dockerfile.
 
 {% highlight docker %}
 # Configure environment
@@ -101,7 +102,7 @@ These lines just set some environment variables so we can refer them later in th
 # Basic setups
 EXPOSE 8888
 RUN apt-get -y update && \
-    apt-get install -y wget python-pip python-dev libgtk2.0-0
+    apt-get install -y wget python-pip python-dev libgtk2.0-0 unzip
 {% endhighlight %}
 
 OK this is more interesting part.
@@ -129,7 +130,8 @@ RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -
 
 Okay, whats next?
 We have our package manager so its time to install python packages.
-To do this under our local user, we
+To do this under our local user, we first setup path to conda in environment to make `conda` command available.
+After its done, we only need to install packages with `pip install` and `conda install`
 
 {% highlight docker %}
 # Switch to local user
@@ -139,9 +141,10 @@ WORKDIR $HOME
 
 # prepare default python 3.5 environment
 RUN pip install --upgrade pip && \
-    pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.12.0rc0-cp35-cp35m-linux_x86_64.whl && \
-    pip install h5py jupyter keras matplotlib moviepy pandas pillow && \
-    conda install -y -c menpo opencv3=3.1.0
+    pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.12.0-cp35-cp35m-linux_x86_64.whl && \
+    pip install h5py jupyter keras matplotlib moviepy pandas pillow sklearn flask-socketio eventlet && \
+    conda install -y -c menpo opencv3=3.1.0 && \
+    conda install -y seaborn
 {% endhighlight %}
 
 Lof of 'pip install' here make all the dirty stuff for us.
