@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "SDCND Traffic Sign Classifier"
-date:   2016-11-30 16:00:00 +0000
+date:   2016-12-30 16:00:00 +0000
 categories:
 ---
 
