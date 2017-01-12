@@ -5,8 +5,8 @@ date:   2016-11-29 14:00:00 +0000
 categories:
 ---
 
-Recently I joined Udacity [Self-Driving Car Nanodegree](https://www.udacity.com/drive), which is a 9 month educational program consisting of 3 terms of 3 months each.
-This post is not for detailed description of the course and its content, this can be found on Udacity homepage itself.
+Recently I joined Udacity [Self-Driving Car Engineer Nanodegree](https://www.udacity.com/drive), which is a 9 month educational program consisting of 3 terms of 3 months each.
+This post is not for detailed description of the course and its content, this can be found on Udacity homepage itself.  
 Just in few words, first term of the program covers two main topics: Deep Learning and Computer Vision.
 Programming exercises and projects for this term rely on python stack (tensorflow, keras, opencv).
 To make assignments, one can have localhost machine setup or use AWS, use different operational systems etc.
