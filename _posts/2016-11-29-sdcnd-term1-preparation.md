@@ -2,7 +2,7 @@
 layout: post
 title:  "SDCND Term1 Preparations"
 date:   2016-11-29 14:00:00 +0000
-categories:
+categories: sdcnd docker
 ---
 
 Recently I joined Udacity [Self-Driving Car Engineer Nanodegree](https://www.udacity.com/drive), which is a 9 month educational program consisting of 3 terms of 3 months each.
@@ -11,7 +11,9 @@ Just in few words, first term of the program covers two main topics: Deep Learni
 Programming exercises and projects for this term rely on python stack (tensorflow, keras, opencv).
 To make assignments, one can have localhost machine setup or use AWS, use different operational systems etc.
 Further terms will include more software and more specific requirements.
-All of this give us next problem of environment setup.
+All of this give us next problem of environment setup which is solved in this post.
+
+<!--excerpt-->
 
 ## Problem
 

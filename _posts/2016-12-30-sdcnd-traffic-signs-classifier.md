@@ -2,13 +2,16 @@
 layout: post
 title:  "SDCND Traffic Sign Classifier"
 date:   2016-12-30 16:00:00 +0000
-categories:
+categories: sdcnd tensorflow
 ---
 
 Project 2 of [Self-Driving Car Engineer Nanodegree](https://www.udacity.com/drive) by Udacity is about building a deep neural network for recognizing traffic signs.
 The dataset for this task is a labeled collection of [German Traffic Signs](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset).
 Each sign is represented as 32x32 RGB image and a label number which corresponds to one of 43 classes like 'Speed limit (20 km/h)' or 'Priority road'.
 Dataset consists of training set with 39209 examples and a test set of 12630.
+Project's task is to build traffic sign classifier which implementation is described in this post.
+
+<!--excerpt-->
 
 ## Problem
 
